@@ -1,0 +1,31 @@
+<h2>Bands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Explicit Lyrics?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bands.each do |band| %>
+      <tr>
+        <td><%= band.name %></td>
+        <td><%= band.genre %></td>
+        <td><%= band.explicit_lyrics %></td>
+        <td><%= link_to 'Show', band %></td>
+        <td><%= link_to 'Edit', edit_band_path(band) %></td>
+        <td><%= link_to 'Delete', band, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Band', new_band_path %>
+<%= link_to 'Home', root_path %>
+

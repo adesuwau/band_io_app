@@ -1,0 +1,22 @@
+<h2>Search Events</h2>
+
+  <form action="<%= events_path %>" method="GET">
+    <input type="date" name="date">
+    <input type="submit" value="Search">
+  </form>
+</br>
+
+ <% @events.each do |event| %>
+ Date:<%= event.date %></br>
+ Alcohol:<%= event.alcohol_served %></br>
+ <% @band.each do |band| %>
+ <% if band.id == event.band_id %>
+ Band: <%= band.name %></br></br>
+ <% end %>
+ <% end %>
+ Venue:<%= @venue %></br>
+ <% end %>
+
+<%= link_to 'Home', root_path %>
+<%= link_to 'New Event', new_event_path %>
+
